@@ -206,7 +206,7 @@ getgenv().crypt.decrypt = getgenv().crypt.encrypt
 
 getgenv().getidentity = getthreadidentity
 getgenv().getthreadcontext = getthreadidentity
-getgenv().setthreadidentity = function(newidentity) identity = newidentity end
+--getgenv().setthreadidentity = function(newidentity) identity = newidentity end
 getgenv().setidentity = setthreadidentity
 getgenv().setthreadcontext = setthreadidentity
 getgenv().isscriptable = function(instance, propertyName)
@@ -6973,6 +6973,7 @@ getgenv().getscriptthread = function(script)
     return thread
 end
 getscriptthread = getgenv().getscriptthread
+--[[
 getgenv().setreadonly = function(taable, boolean)
     if boolean then
         table.freeze(taable)
@@ -6980,6 +6981,7 @@ getgenv().setreadonly = function(taable, boolean)
 		disableprotections(taable)
     end
 end
+]]
 setreadonly = getgenv().setreadonly
 getgenv().makereadonly = setreadonly
 makereadonly = getgenv().makereadonly
@@ -7179,6 +7181,7 @@ getgenv().hooksignal = function(signal, hook)
     end)
 end
 hooksignal = getgenv().hooksignal
+--[[
 getgenv().hookfunction = function(original, hook)
     if type(original) ~= "function" then
         error("The first arg must be a function (original func).")
@@ -7196,6 +7199,7 @@ getgenv().hookfunction = function(original, hook)
     return hooked
 end
 hookfunction = getgenv().hookfunction
+]]
 getgenv().untouchedshit = {}
 untouchedshit = getgenv().untouchedshit
 getgenv().setuntouched = function(obj)
